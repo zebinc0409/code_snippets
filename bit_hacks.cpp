@@ -195,23 +195,48 @@ using namespace std;
 //     return pos;
 // }
 
-int positionOfRightmostSetBit(int n) {
-    if (n & 1) {
-        return 1;
-    }
-    n = n ^ (n & (n -1));
-    return log2(n) + 1;
+// int positionOfRightmostSetBit(int n) {
+//     if (n & 1) {
+//         return 1;
+//     }
+//     n = n ^ (n & (n -1));
+//     // return log2(n) + 1;
+//     int pos = 0;
+//     while (n) {
+//         n = n >> 1;
+//         pos++;
+//     }
+//     return pos;
+// }
+
+
+ 
+// int main()
+// {
+//     int n = 20;
+ 
+//     cout << n << " in binary is " << bitset<8>(n) << endl;
+//     cout << "The position of the rightmost set bit is "
+//          << positionOfRightmostSetBit(n);
+ 
+//     return 0;
+// }
+
+
+unsigned unsetRightmostSetBit(unsigned n) {
+    return n & (n-1);
 }
 
-
- 
 int main()
 {
-    int n = 20;
- 
-    cout << n << " in binary is " << bitset<8>(n) << endl;
-    cout << "The position of the rightmost set bit is "
-         << positionOfRightmostSetBit(n);
- 
-    return 0;
+	int n = 20;
+
+	cout << n << " in binary is " << bitset<8>(n) << endl;
+
+	cout << "Rightmost bit of " << n << " is unset\n";
+	n = unsetRightmostSetBit(n);
+
+	cout << n << " in binary is " << bitset<8>(n) << endl;
+
+	return 0;
 }
