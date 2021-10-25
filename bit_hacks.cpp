@@ -1,5 +1,6 @@
 #include <iostream>
 #include <bitset>
+#include <cmath>
 using namespace std;
  
 // int main()
@@ -194,7 +195,13 @@ using namespace std;
 //     return pos;
 // }
 
-int positionOf
+int positionOfRightmostSetBit(int n) {
+    if (n & 1) {
+        return 1;
+    }
+    n = n ^ (n & (n -1));
+    return log2(n) + 1;
+}
 
 
  
